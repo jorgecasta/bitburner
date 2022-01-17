@@ -10,6 +10,7 @@ const filesToDownload = [
   'killAll.js',
   'runHacking.js',
   'find.js',
+  'contractor.js',
 ]
 const valuesToRemove = ['BB_SERVER_MAP']
 
@@ -22,7 +23,7 @@ function localeHHMMSS(ms = 0) {
 }
 
 export async function main(ns) {
-  ns.tprint(`[${localeHHMMSS()}] Starting initHacking.js`)
+  ns.tprint(`[${localeHHMMSS()}] Starting scripts`)
 
   let hostname = ns.getHostname()
 
@@ -36,7 +37,7 @@ export async function main(ns) {
     await ns.scriptKill(filename, 'home')
     await ns.rm(filename)
     await ns.sleep(200)
-    ns.tprint(`[${localeHHMMSS()}] Trying to download ${path}`)
+    ns.tprint(`[${localeHHMMSS()}] Downloading ${path}`)
     await ns.wget(path + '?ts=' + new Date().getTime(), filename)
   }
 

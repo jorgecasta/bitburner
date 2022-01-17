@@ -94,7 +94,6 @@ async function getHackableServers(ns, servers) {
   const vulnerableServers = Object.keys(servers)
     .filter((hostname) => ns.serverExists(hostname))
     .filter((hostname) => servers[hostname].ports <= playerDetails.portHacks || ns.hasRootAccess(hostname))
-    .filter((hostname) => servers[hostname].ram >= 2)
 
   for (const hostname of vulnerableServers) {
     if (hostname === 'home') continue;
@@ -243,6 +242,10 @@ export async function main(ns) {
         const server = serverMap.servers[vulnerableServers[i]]
         let cyclesFittable = Math.max(0, Math.floor(server.ram / 1.75))
         const cyclesToRun = Math.max(0, Math.min(cyclesFittable, growCycles))
+        
+        if (cyclesToRun == 0) {
+          continue
+        }
 
         if (growCycles) {
           await ns.exec('grow.js', server.host, cyclesToRun, bestTarget, cyclesToRun, growDelay, createUUID())
@@ -304,6 +307,10 @@ export async function main(ns) {
         const server = serverMap.servers[vulnerableServers[i]]
         let cyclesFittable = Math.max(0, Math.floor(server.ram / 1.7))
         const cyclesToRun = Math.max(0, Math.min(cyclesFittable, hackCycles))
+
+        if (cyclesToRun == 0) {
+          continue
+        }
 
         if (hackCycles) {
           await ns.exec('hack.js', server.host, cyclesToRun, bestTarget, cyclesToRun, hackDelay, createUUID())
