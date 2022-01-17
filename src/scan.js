@@ -70,6 +70,6 @@ export async function main(ns) {
             ].join("");
     });
 
-    const list = document.getElementById("terminal");
-    list.insertAdjacentHTML('beforeend',output);
+    const doc = eval("document");
+    doc.getElementById("terminal").insertAdjacentHTML('beforeend', output);
 }
