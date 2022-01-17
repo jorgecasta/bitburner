@@ -10,7 +10,7 @@ const filesToDownload = [
   'killAll.js',
   'runHacking.js',
   'find.js',
-  'contractor.js',
+  'contracter.js',
   'exploit.js',
   'scan.js',
   'connect.js'
