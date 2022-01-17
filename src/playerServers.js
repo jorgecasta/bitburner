@@ -3,7 +3,7 @@ const settings = {
   gbRamCost: 55000,
   maxGbRam: 1048576,
   minGbRam: 64,
-  totalMoneyAllocation: 0.9, // money to spend 90%
+  totalMoneyAllocation: 0.5, // money to spend 90%
   actions: {
     BUY: 'buy',
     UPGRADE: 'upgrade',

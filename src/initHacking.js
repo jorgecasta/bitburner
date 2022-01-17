@@ -13,7 +13,9 @@ const filesToDownload = [
   'contracter.js',
   'exploit.js',
   'scan.js',
-  'connect.js'
+  'connect.js',
+  'stockMarketer.js',
+  'sellAllStock.js'
 ]
 const valuesToRemove = ['BB_SERVER_MAP']
 
