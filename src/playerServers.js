@@ -50,7 +50,7 @@ function updateServer(ns, serverMap, host) {
     growth: ns.getServerGrowth(host),
     minSecurityLevel: ns.getServerMinSecurityLevel(host),
     baseSecurityLevel: ns.getServerBaseSecurityLevel(host),
-    ram: ns.getServerRam(host)[0],
+    ram: ns.getServerMaxRam(host),
     connections: ['home'],
     parent: 'home',
     children: [],
