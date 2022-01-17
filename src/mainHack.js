@@ -269,6 +269,10 @@ export async function main(ns) {
         let cyclesFittable = Math.max(0, Math.floor(server.ram / 1.75))
         const cyclesToRun = Math.max(0, Math.min(cyclesFittable, growCycles))
 
+        if (cyclesToRun == 0) {
+          continue
+        }
+
         if (growCycles) {
           await ns.exec('grow.js', server.host, cyclesToRun, bestTarget, cyclesToRun, growDelay, createUUID())
           growCycles -= cyclesToRun
